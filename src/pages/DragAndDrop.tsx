@@ -1,4 +1,4 @@
-import React,{useState, useRef} from 'react'
+import React,{useState, useRef, useEffect} from 'react'
 import {
     Box
 } from '@material-ui/core'
@@ -7,6 +7,16 @@ import Resizeable from '../components/draganddrop/Resizeable'
 import CloneComp from '../components/draganddrop/CloneComp'
 
 export default function DragAndDrop() {
+    const containerRef = useRef<null | HTMLDivElement>(null);
+    const [dimensions, setDimensions] = useState({ width:0, height: 0 });
+    useEffect(() => {
+        if(containerRef.current){
+            setDimensions({
+                width: containerRef.current?.offsetWidth, 
+                height: containerRef.current?.offsetHeight
+            })
+        }
+    },[])
 
     return (
         <Box
@@ -19,8 +29,10 @@ export default function DragAndDrop() {
                 justifyContent: `space-around`,
                 minWidth: `1500px`
             }}
+            ref={containerRef}
+            id="canvas-box"
         >
-            <Box
+            {/* <Box
                 sx={{
                     background: `#fff`,
                     height: `70vh`,
@@ -41,7 +53,10 @@ export default function DragAndDrop() {
                 }}
             >
 
-            </Box>
+            </Box> */}
+            <CloneComp dimensions={dimensions} /> 
+            
+            
         </Box>
     )
 }
