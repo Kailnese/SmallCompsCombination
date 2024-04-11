@@ -22,7 +22,7 @@ const MainLayout = (props: any) => {
         },
         {
             id: 2, 
-            path: `/app/shopping`,
+            path: `/app/progress`,
             title: "Shopping",
             icon: ""
         },

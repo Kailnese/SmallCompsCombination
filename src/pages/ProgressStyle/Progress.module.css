@@ -1,0 +1,25 @@
+.container{
+  width: 500px;
+  height: 8px;
+  position: relative;
+  background-color: white;
+  display: flex;
+  border-radius: 100px;
+}
+
+.success{
+  background-color: green;
+}
+
+.error{
+  background-color: red;
+}
+
+.success, .error {
+  width: 100px;
+  height:100%;
+}
+
+.items {
+  height:100%;
+}
